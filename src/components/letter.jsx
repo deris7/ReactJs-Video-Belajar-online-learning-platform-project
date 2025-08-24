@@ -2,7 +2,7 @@ export default function letter() {
   return (
     <section className="newsletter">
       <img
-        src="src/assets/images/10.jpg"
+        src="public/images/10.jpg"
         alt="Background Newsletter"
         className="bg"
       />
