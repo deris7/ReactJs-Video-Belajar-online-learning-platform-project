@@ -7,7 +7,7 @@ export default function Navbar() {
         </div>
         <div className="nav-right">
           <a href="#">Kategori</a>
-          <img src="public/images/profile.png" alt="User Avatar" />
+          <img src="/images/profile.png" alt="User Avatar" />
         </div>
       </div>
     </header>

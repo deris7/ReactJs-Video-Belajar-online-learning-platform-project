@@ -9,7 +9,7 @@ export default function Beranda() {
       <Navbar />
 
       <section className="greetings">
-        <img src="public/images/0.jpg" alt="Background" className="bg" />
+        <img src="/images/0.jpg" alt="Background" className="bg" />
         <div className="overlay"></div>
         <div className="content">
           <h1>
@@ -42,82 +42,82 @@ export default function Beranda() {
 
         <div className="card-grid">
           <Card
-            thumbnail="public/images/1.jpg"
+            thumbnail="/images/1.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar1.png"
+            avatar="/images/Avatar/Avatar1.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/2.jpg"
+            thumbnail="/images/2.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar2.png"
+            avatar="/images/Avatar/Avatar2.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/3.jpg"
+            thumbnail="/images/3.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar3.png"
+            avatar="/images/Avatar/Avatar3.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/4.jpg"
+            thumbnail="/images/4.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar4.png"
+            avatar="/images/Avatar/Avatar4.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/5.jpg"
+            thumbnail="/images/5.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar5.png"
+            avatar="/images/Avatar/Avatar5.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/6.jpg"
+            thumbnail="/images/6.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar6.png"
+            avatar="/images/Avatar/Avatar6.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/7.jpg"
+            thumbnail="/images/7.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar7.png"
+            avatar="/images/Avatar/Avatar7.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/8.jpg"
+            thumbnail="/images/8.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar1.png"
+            avatar="/images/Avatar/Avatar1.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"
           />
           <Card
-            thumbnail="public/images/9.jpg"
+            thumbnail="/images/9.jpg"
             title="Big 4 Auditor Financial Analyst"
             description="Informasi intensif dengan tingkat profesional tinggi yang sangat dibutuhkan perusahaan."
-            avatar="public/images/Avatar/Avatar8.png"
+            avatar="/images/Avatar/Avatar8.png"
             instructor="Jenna Ortega"
             rating="⭐⭐⭐⭐☆ (21.000)"
             price="Rp 300K"

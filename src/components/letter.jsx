@@ -1,11 +1,7 @@
 export default function letter() {
   return (
     <section className="newsletter">
-      <img
-        src="public/images/10.jpg"
-        alt="Background Newsletter"
-        className="bg"
-      />
+      <img src="/images/10.jpg" alt="Background Newsletter" className="bg" />
       <div className="overlay"></div>
       <div className="content">
         <h4>NEWSLETTER</h4>
