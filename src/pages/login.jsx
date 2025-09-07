@@ -1,9 +1,30 @@
-import { Link } from "react-router-dom";
-import Logo from "../components/logo.jsx";
-import FormInput from "../components/formInput.jsx";
-import PasswordInput from "../components/passwordinput.jsx";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../Context/UserContext";
+import Logo from "../components/logo";
+import FormInput from "../components/formInput";
+import PasswordInput from "../components/passwordinput";
 
 export default function Login() {
+  const { login } = useUser();
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const result = login(email, password);
+    if (!result.success) {
+      setError(result.message);
+      return;
+    }
+
+    navigate("/");
+  };
+
   return (
     <>
       <header>
@@ -17,35 +38,37 @@ export default function Login() {
             Yuk, lanjutkan belajarmu di <strong>videobelajar</strong>.
           </p>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <FormInput
               label="E-Mail"
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <PasswordInput label="Kata Sandi" id="password" name="password" />
+            <PasswordInput
+              label="Kata Sandi"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            {error && <p className="text-red-500">{error}</p>}
 
             <div className="forgot-password">
-              <a href="#">Lupa Password?</a>
+              <Link to="/forgot-password">Lupa Password?</Link>
             </div>
 
             <button type="submit" className="btn green">
               Masuk
             </button>
-            <Link to="/register" className="btn light-green">
-              Daftar
-            </Link>
-
-            <div className="divider">atau</div>
-
-            <button type="button" className="btn google">
-              <img
-                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                alt="Google"
-              />
-              Masuk dengan Google
+            <button className="btn light-green">
+              <Link to="/register" className="btn light-green">
+                Daftar
+              </Link>
             </button>
           </form>
         </div>

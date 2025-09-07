@@ -10,7 +10,7 @@ export default function letter() {
           Daftarkan dirimu untuk mendapatkan informasi terbaru dan penawaran
           spesial dari program-program terbaik Videobelajar!
         </p>
-        <form className="newsletter-form">
+        <form className="newsletter-form" type="email">
           <input type="email" placeholder="Masukkan Emailmu..." required />
           <button type="submit">Subscribe</button>
         </form>
