@@ -1,17 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { UserProvider } from "./Context/UserContext";
-import Beranda from "./pages/home";
-import Login from "./pages/login";
-import Register from "./pages/register";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
-    <UserProvider>
+    <>
       <Routes>
-        <Route path="/" element={<Beranda />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-    </UserProvider>
+    </>
   );
 }

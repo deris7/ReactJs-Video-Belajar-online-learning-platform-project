@@ -1,19 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../Context/UserContext";
 import { useState, useRef, useEffect } from "react";
 import Logo from "./logo";
-// import "../assets/style/navbar.css";
+import { useUserStore } from "../stores/useUserStore";
 
 export default function Navbar() {
-  const { currentUser, setCurrentUser } = useUser();
+  const { currentUser, logout } = useUserStore();
   const navigate = useNavigate();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const handleLogout = () => {
-    setCurrentUser(null);
-    navigate("/login");
+    logout();
+    navigate("/");
   };
 
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function Navbar() {
           {currentUser ? (
             <div className="dropdown-wrapper" ref={dropdownRef}>
               <img
-                src="/images/profile.png"
+                src={"/images/profile.png"}
                 alt="User Profile"
                 className="profile-img"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}

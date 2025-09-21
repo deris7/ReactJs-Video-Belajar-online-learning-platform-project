@@ -1,27 +1,31 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../Context/UserContext";
 import Logo from "../components/logo";
 import FormInput from "../components/formInput";
 import PasswordInput from "../components/passwordinput";
+import { useUserStore } from "../stores/useUserStore";
 
 export default function Login() {
-  const { login } = useUser();
+  const { login, error } = useUserStore();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [localError, setLocalError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const result = login(email, password);
-    if (!result.success) {
-      setError(result.message);
+    // panggil login async dari store
+    await login(email, password);
+
+    const { currentUser, error } = useUserStore.getState();
+    if (error) {
+      setLocalError(error);
       return;
     }
 
+    // redirect ke home
     navigate("/");
   };
 
@@ -56,7 +60,9 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {error && <p className="text-red-500">{error}</p>}
+            {(localError || error) && (
+              <p className="text-red-500">{localError || error}</p>
+            )}
 
             <div className="forgot-password">
               <Link to="/forgot-password">Lupa Password?</Link>
@@ -69,6 +75,15 @@ export default function Login() {
               <Link to="/register" className="btn light-green">
                 Daftar
               </Link>
+            </button>
+            <div className="divider">atau</div>
+
+            <button type="button" className="btn google">
+              <img
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google"
+              />
+              Masuk dengan Google
             </button>
           </form>
         </div>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "../Context/UserContext";
 import Logo from "../components/logo";
 import FormInput from "../components/formInput";
 import PasswordInput from "../components/passwordinput";
+import { useUserStore } from "../stores/useUserStore";
 
 export default function Register() {
-  const { register } = useUser();
+  const { register, error } = useUserStore();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -17,23 +17,24 @@ export default function Register() {
     confirmPassword: "",
   });
 
-  const [error, setError] = useState("");
+  const [localError, setLocalError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Password tidak sama!");
+      setLocalError("Password tidak sama!");
       return;
     }
 
-    const result = register(formData);
-    if (!result.success) {
-      setError(result.message);
+    await register(formData);
+    const { error } = useUserStore.getState();
+    if (error) {
+      setLocalError(error);
       return;
     }
 
@@ -101,7 +102,9 @@ export default function Register() {
               onChange={handleChange}
             />
 
-            {error && <p className="text-red-500">{error}</p>}
+            {(localError || error) && (
+              <p className="text-red-500">{localError || error}</p>
+            )}
 
             <button type="submit" className="btn green">
               Daftar
@@ -110,6 +113,15 @@ export default function Register() {
               <Link to="/login" className="btn light-green">
                 Masuk
               </Link>
+            </button>
+            <div className="divider">atau</div>
+
+            <button type="button" className="btn google">
+              <img
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google"
+              />
+              Masuk dengan Google
             </button>
           </form>
         </div>
