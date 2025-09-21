@@ -6,13 +6,11 @@ import Profile from "./pages/Profile";
 
 export default function App() {
   return (
-    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </HashRouter>
   );
 }
